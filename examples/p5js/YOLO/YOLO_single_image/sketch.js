@@ -44,7 +44,7 @@ function draw() {
     for (let i = 0; i < objects.length; i++) {
       noStroke();
       fill(0, 255, 0);
-      text(objects[i].label + " " + nfc(objects[i].confidence * 100.0, 2) + "%", objects[i].x * width + 5, objects[i].y * height + 15);
+      text(`${objects[i].label  } ${  nfc(objects[i].confidence * 100.0, 2)  }%`, objects[i].x * width + 5, objects[i].y * height + 15);
       noFill();
       strokeWeight(4);
       stroke(0, 255, 0);

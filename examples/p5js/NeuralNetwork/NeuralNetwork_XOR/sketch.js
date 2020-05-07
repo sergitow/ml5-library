@@ -2,7 +2,7 @@
 // https://youtu.be/N3ZnNa01BPM
 
 let model;
-let resolution = 20;
+const resolution = 20;
 let cols;
 let rows;
 
@@ -14,19 +14,19 @@ function setup() {
   let index = 0;
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
-      let br = 255; //y_values[index] * 255
+      const br = 255; // y_values[index] * 255
       fill(br);
       rect(i * resolution, j * resolution, resolution, resolution);
       fill(255 - br);
       textSize(8);
       textAlign(CENTER, CENTER);
       text(nf(0.5, 1, 2), i * resolution + resolution / 2, j * resolution + resolution / 2)
-      //text(nf(y_values[index], 1, 2), i * resolution + resolution / 2, j * resolution + resolution / 2)
+      // text(nf(y_values[index], 1, 2), i * resolution + resolution / 2, j * resolution + resolution / 2)
       index++;
     }
   }
 
-  let options = {
+  const options = {
     inputs: 2,
     outputs: 1,
     learningRate: 0.25,
@@ -36,7 +36,7 @@ function setup() {
   }
   model = ml5.neuralNetwork(options);
 
-  //model = ml5.neuralNetwork(2, 1);
+  // model = ml5.neuralNetwork(2, 1);
   model.addData([0, 0], [0]);
   model.addData([1, 0], [1]);
   model.addData([0, 1], [1]);
@@ -55,11 +55,11 @@ function whileTraining(epoch, logs) {
 function finishedTraining() {
   // console.log('done!');
   // TODO: Support prediction on multiple rows of input data
-  let xs = [];
+  const xs = [];
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
-      let x1 = i / cols;
-      let x2 = j / rows;
+      const x1 = i / cols;
+      const x2 = j / rows;
       xs.push([x1, x2]);
     }
   }
@@ -77,7 +77,7 @@ function gotResults(error, results) {
   let index = 0;
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
-      let br = results[index][0].value * 255; //y_values[index] * 255
+      const br = results[index][0].value * 255; // y_values[index] * 255
       fill(br);
       rect(i * resolution, j * resolution, resolution, resolution);
       fill(255 - br);

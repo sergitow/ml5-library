@@ -22,8 +22,8 @@ let canvas, ctx;
 let label;
 let confidence;
 let button
-let width = 280;
-let height = 280;
+const width = 280;
+const height = 280;
 
 let pX = null;
 let pY = null;
@@ -110,14 +110,14 @@ function onMouseUp(e) {
 }
 
 function onMouseUpdate(e) {
-  var pos = getMousePos(canvas, e);
+  const pos = getMousePos(canvas, e);
   x = pos.x;
   y = pos.y;
 
 }
 
 function getMousePos(canvas, e) {
-  var rect = canvas.getBoundingClientRect();
+  const rect = canvas.getBoundingClientRect();
   return {
     x: e.clientX - rect.left,
     y: e.clientY - rect.top
@@ -139,7 +139,7 @@ function gotResult(error, results) {
   // The results are in an array ordered by confidence.
   console.log(results);
   // Show the first label and confidence
-  label.textContent = 'Label: ' + results[0].label;
-  confidence.textContent = 'Confidence: ' + results[0].confidence.toFixed(4)
+  label.textContent = `Label: ${  results[0].label}`;
+  confidence.textContent = `Confidence: ${  results[0].confidence.toFixed(4)}`
 }
 

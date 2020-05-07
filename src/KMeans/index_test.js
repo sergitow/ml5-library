@@ -20,7 +20,7 @@ describe('kMeans', () => {
   beforeAll(async () => {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
     kmeansModel = await kmeans(dataurl, KMEANS_DEFAULTS, (err, result) => {
-      return;
+      
     });
     await kmeansModel.load(dataurl)
   });

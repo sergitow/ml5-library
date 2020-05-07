@@ -12,9 +12,9 @@ Multiple Image classification using MobileNet
 let classifier;
 
 let img;
-let currentIndex = 0;
+const currentIndex = 0;
 let allImages = [];
-let predictions = [];
+const predictions = [];
 let results;
 
 async function setup() {
@@ -44,16 +44,16 @@ setup();
 
 
 function appendImages(arr) {
-  let output = [];
+  const output = [];
   for (i = 0; i < arr.length; i++) {
     imgPath = arr[i];
-    output.push('images/dataset/' + imgPath);
+    output.push(`images/dataset/${  imgPath}`);
   }
   return output;
 }
 
 async function loadImage(imgPath, idx) {
-  let imgEl = new Image();
+  const imgEl = new Image();
   imgEl.src = imgPath;
 
   imgEl.onload = async function () {
@@ -64,7 +64,7 @@ async function loadImage(imgPath, idx) {
         console.log(err, idx);
         return;
       }
-      let information = {
+      const information = {
         name: imgPath,
         result: res
       };
@@ -86,8 +86,8 @@ async function loadImage(imgPath, idx) {
 
 
 function download(content, fileName, contentType) {
-  var a = document.createElement("a");
-  var file = new Blob([content], {
+  const a = document.createElement("a");
+  const file = new Blob([content], {
     type: contentType
   });
   a.href = URL.createObjectURL(file);
@@ -98,7 +98,7 @@ function download(content, fileName, contentType) {
 
 function savePredictions() {
   predictionsJSON = {
-    predictions: predictions
+    predictions
   };
   download(JSON.stringify(predictionsJSON), 'json.txt', 'text/plain');
 }

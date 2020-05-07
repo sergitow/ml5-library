@@ -45,6 +45,6 @@ function gotResult(error, results) {
   // The results are in an array ordered by confidence.
   console.log(results);
   // Show the first label and confidence
-  label.textContent = 'Label: ' + results[0].label;
-  confidence.textContent = 'Confidence: ' + results[0].confidence.toFixed(4); 
+  label.textContent = `Label: ${  results[0].label}`;
+  confidence.textContent = `Confidence: ${  results[0].confidence.toFixed(4)}`; 
 }

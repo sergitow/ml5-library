@@ -1,4 +1,4 @@
-let trainData = [];
+const trainData = [];
 let neuralNetwork;
 
 // selectors for inputs and button
@@ -83,7 +83,7 @@ function doneTraining() {
       console.log(results);
       for (let i = 0; i < results.length; i++){
         x = xMany[i][0];
-        y = results[i][0]['value'];
+        y = results[i][0].value;
         circle(x, y, 1);
       }
     }

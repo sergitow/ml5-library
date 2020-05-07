@@ -32,7 +32,7 @@ const loop = (classifier) => {
   classifier.classify(video)
     .then(results => {
       if(results.length > 0){
-        resultsP.innerHTML = 'Label: ' + results[0].label + ' ' + results[0].confidence.toFixed(4);
+        resultsP.innerHTML = `Label: ${  results[0].label  } ${  results[0].confidence.toFixed(4)}`;
         loop(classifier) // Call again to create a loop
       }
     })
